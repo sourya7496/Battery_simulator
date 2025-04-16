@@ -2,4 +2,3 @@ streamlit
 pandas
 pybamm
 plotly
-pybamm_main
