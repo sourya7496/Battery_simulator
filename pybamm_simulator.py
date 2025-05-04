@@ -6,7 +6,7 @@ st.set_page_config(layout="wide")
 st.title("Select Battery Cycler Procedure")
 
 columns_main = ["Mode", "Type", "Value", "End Mode", "End operator", "End Value", "Maximum Time (s)"]
-options_mode = ["Charge", "Discharge", "Rest", "Waveform"]
+options_mode = ["Charge", "Discharge", "Rest"]   ##"Waveform"
 options_type = ['Current', 'Power']
 options_end_type = ['Voltage', 'Current']
 options_end_sign = ['>=', '<=', '=', '<', '>']
