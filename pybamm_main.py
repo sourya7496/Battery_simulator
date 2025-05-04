@@ -57,7 +57,10 @@ def generate_model(selections, t, c, soc):
     current = solution["Current [A]"].entries
     dis_cap= solution["Discharge capacity [A.h]"].entries
     
-    temperature= solution["Cell temperature [K]"].entries
+    temperature_2= solution["Cell temperature [K]"].entries
+    print("Temperature=", temperature_2)
+    print("discap=", dis_cap)
+    
     resistance= solution["Resistance [Ohm]"].entries
 
     # Plot
@@ -70,7 +73,7 @@ def generate_model(selections, t, c, soc):
 
 
     # Plot Temperature
-    fig.add_trace(go.Scatter(x=time, y=temperature, name="Temperature(K)", line=dict(color='red')),
+    fig.add_trace(go.Scatter(x=time, y=temperature_2, name="Temperature(K)", line=dict(color='red')),
                 row=1, col=2)
 
     # Plot Current
