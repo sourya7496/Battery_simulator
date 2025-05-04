@@ -3,6 +3,14 @@ import streamlit as st
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+def process_temperatures(t):
+    t_arr=[]
+    for i in range(len(t)):
+        t_arr.append(t[i].mean())
+
+    return t_arr
+
+
 def generate_experiment(single_line, line_arr):
     print("Single line")
     if single_line[0]=='Charge' or single_line[0]=='Discharge':
@@ -56,10 +64,9 @@ def generate_model(selections, t, c, soc):
     voltage = solution["Voltage [V]"].entries
     current = solution["Current [A]"].entries
     dis_cap= solution["Discharge capacity [A.h]"].entries
-    
     temperature_2= solution["Cell temperature [K]"].entries
-    print("Temperature=", temperature_2)
-    print("discap=", dis_cap)
+    temperature= process_temperatures(temperature_2)
+
     
     resistance= solution["Resistance [Ohm]"].entries
 
@@ -73,7 +80,7 @@ def generate_model(selections, t, c, soc):
 
 
     # Plot Temperature
-    fig.add_trace(go.Scatter(x=time, y=temperature_2, name="Temperature(K)", line=dict(color='red')),
+    fig.add_trace(go.Scatter(x=time, y=temperature, name="Temperature(K)", line=dict(color='red')),
                 row=1, col=2)
 
     # Plot Current
