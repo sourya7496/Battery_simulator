@@ -70,7 +70,7 @@ def generate_model(selections, t, c, soc):
 
 
     # Plot Temperature
-    fig.add_trace(go.Scatter(x=time, y=temperature, name="Temperature", line=dict(color='red')),
+    fig.add_trace(go.Scatter(x=time, y=temperature, name="Temperature(K)", line=dict(color='red')),
                 row=1, col=2)
 
     # Plot Current

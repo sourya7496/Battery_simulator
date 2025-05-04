@@ -53,7 +53,8 @@ st.session_state.selections = []
 for row_id in st.session_state.row_ids:
     st.session_state.selections.append(create_row(row_id))
 
-temperature= st.number_input("Temperature", value=298.3, key='tem', label_visibility="visible")
+temperature_input= st.number_input("Temperature", value=298.3, key='tem', label_visibility="visible")
+temperature= float(temperature_input)
 c_rate= st.number_input("C-rate", value=3.2, key='ah', label_visibility="visible")
 s_o_c= st.number_input("Initial SOC in fraction", value=0.5, key='soc', label_visibility="visible")
 
